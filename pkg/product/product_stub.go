@@ -9,11 +9,10 @@
 package product
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("productFillInfo not implemented on " + runtime.GOOS)
+	return fmt.Errorf("productFillInfo not implemented on " + runtime.GOOS)
 }

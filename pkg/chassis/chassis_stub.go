@@ -9,11 +9,10 @@
 package chassis
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("chassisFillInfo not implemented on " + runtime.GOOS)
+	return fmt.Errorf("chassisFillInfo not implemented on " + runtime.GOOS)
 }

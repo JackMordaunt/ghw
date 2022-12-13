@@ -12,7 +12,6 @@ import (
 	"path"
 	"strings"
 
-	"github.com/pkg/errors"
 	"howett.net/plist"
 )
 
@@ -98,12 +97,12 @@ type ioregPlist struct {
 func getDiskUtilListPlist() (*diskUtilListPlist, error) {
 	out, err := exec.Command("diskutil", "list", "-plist").Output()
 	if err != nil {
-		return nil, errors.Wrap(err, "diskutil list failed")
+		return nil, fmt.Errorf("diskutil list failed: %w", err)
 	}
 
 	var data diskUtilListPlist
 	if _, err := plist.Unmarshal(out, &data); err != nil {
-		return nil, errors.Wrap(err, "diskutil list plist unmarshal failed")
+		return nil, fmt.Errorf("diskutil list plist unmarshal failed: %w", err)
 	}
 
 	return &data, nil
@@ -112,12 +111,12 @@ func getDiskUtilListPlist() (*diskUtilListPlist, error) {
 func getDiskUtilInfoPlist(device string) (*diskUtilInfoPlist, error) {
 	out, err := exec.Command("diskutil", "info", "-plist", device).Output()
 	if err != nil {
-		return nil, errors.Wrapf(err, "diskutil info for %q failed", device)
+		return nil, fmt.Errorf("diskutil info for %q failed: %w", device, err)
 	}
 
 	var data diskUtilInfoPlist
 	if _, err := plist.Unmarshal(out, &data); err != nil {
-		return nil, errors.Wrapf(err, "diskutil info plist unmarshal for %q failed", device)
+		return nil, fmt.Errorf("diskutil info plist unmarshal for %q failed: %w", device, err)
 	}
 
 	return &data, nil
@@ -135,7 +134,7 @@ func getIoregPlist(ioDeviceTreePath string) (*ioregPlist, error) {
 	}
 	out, err := exec.Command(args[0], args[1:]...).Output()
 	if err != nil {
-		return nil, errors.Wrapf(err, "ioreg query for %q failed", ioDeviceTreePath)
+		return nil, fmt.Errorf("ioreg query for %q failed: %w", ioDeviceTreePath, err)
 	}
 	if out == nil || len(out) == 0 {
 		return nil, nil
@@ -143,10 +142,10 @@ func getIoregPlist(ioDeviceTreePath string) (*ioregPlist, error) {
 
 	var data []ioregPlist
 	if _, err := plist.Unmarshal(out, &data); err != nil {
-		return nil, errors.Wrapf(err, "ioreg unmarshal for %q failed", ioDeviceTreePath)
+		return nil, fmt.Errorf("ioreg unmarshal for %q failed: %w", ioDeviceTreePath, err)
 	}
 	if len(data) != 1 {
-		err := errors.Errorf("ioreg unmarshal resulted in %d I/O device tree nodes (expected 1)", len(data))
+		err := fmt.Errorf("ioreg unmarshal resulted in %d I/O device tree nodes (expected 1)", len(data))
 		return nil, err
 	}
 
@@ -155,7 +154,7 @@ func getIoregPlist(ioDeviceTreePath string) (*ioregPlist, error) {
 
 func makePartition(disk, s diskOrPartitionPlistNode, isAPFS bool) (*Partition, error) {
 	if s.Size < 0 {
-		return nil, errors.Errorf("invalid size %q of partition %q", s.Size, s.DeviceIdentifier)
+		return nil, fmt.Errorf("invalid size %q of partition %q", s.Size, s.DeviceIdentifier)
 	}
 
 	var partType string
@@ -223,7 +222,7 @@ func (info *Info) load() error {
 
 	for _, disk := range listPlist.AllDisksAndPartitions {
 		if disk.Size < 0 {
-			return errors.Errorf("invalid size %q of disk %q", disk.Size, disk.DeviceIdentifier)
+			return fmt.Errorf("invalid size %q of disk %q", disk.Size, disk.DeviceIdentifier)
 		}
 
 		infoPlist, err := getDiskUtilInfoPlist(disk.DeviceIdentifier)
@@ -231,7 +230,7 @@ func (info *Info) load() error {
 			return err
 		}
 		if infoPlist.DeviceBlockSize < 0 {
-			return errors.Errorf("invalid block size %q of disk %q", infoPlist.DeviceBlockSize, disk.DeviceIdentifier)
+			return fmt.Errorf("invalid block size %q of disk %q", infoPlist.DeviceBlockSize, disk.DeviceIdentifier)
 		}
 
 		busPath := strings.TrimPrefix(infoPlist.DeviceTreePath, "IODeviceTree:")

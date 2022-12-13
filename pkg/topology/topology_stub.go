@@ -9,11 +9,10 @@
 package topology
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("topologyFillInfo not implemented on " + runtime.GOOS)
+	return fmt.Errorf("topologyFillInfo not implemented on " + runtime.GOOS)
 }

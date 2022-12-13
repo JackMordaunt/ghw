@@ -9,11 +9,10 @@
 package bios
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("biosFillInfo not implemented on " + runtime.GOOS)
+	return fmt.Errorf("biosFillInfo not implemented on " + runtime.GOOS)
 }

@@ -9,11 +9,10 @@
 package cpu
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("cpu.Info.load not implemented on " + runtime.GOOS)
+	return fmt.Errorf("cpu.Info.load not implemented on " + runtime.GOOS)
 }

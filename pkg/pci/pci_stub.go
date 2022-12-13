@@ -9,13 +9,12 @@
 package pci
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("pciFillInfo not implemented on " + runtime.GOOS)
+	return fmt.Errorf("pciFillInfo not implemented on " + runtime.GOOS)
 }
 
 // GetDevice returns a pointer to a Device struct that describes the PCI

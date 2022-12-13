@@ -9,11 +9,10 @@
 package net
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("netFillInfo not implemented on " + runtime.GOOS)
+	return fmt.Errorf("netFillInfo not implemented on " + runtime.GOOS)
 }

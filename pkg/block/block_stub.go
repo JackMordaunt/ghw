@@ -9,11 +9,10 @@
 package block
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("blockFillInfo not implemented on " + runtime.GOOS)
+	return fmt.Errorf("blockFillInfo not implemented on " + runtime.GOOS)
 }

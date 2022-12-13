@@ -9,11 +9,10 @@
 package gpu
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("gpuFillInfo not implemented on " + runtime.GOOS)
+	return fmt.Errorf("gpuFillInfo not implemented on " + runtime.GOOS)
 }

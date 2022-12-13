@@ -9,11 +9,10 @@
 package memory
 
 import (
+	"fmt"
 	"runtime"
-
-	"github.com/pkg/errors"
 )
 
 func (i *Info) load() error {
-	return errors.New("mem.Info.load not implemented on " + runtime.GOOS)
+	return fmt.Errorf("mem.Info.load not implemented on " + runtime.GOOS)
 }
