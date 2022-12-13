@@ -13,7 +13,6 @@ import (
 	"github.com/jaypipes/pcidb"
 
 	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/marshal"
 	"github.com/jaypipes/ghw/pkg/option"
 	pciaddr "github.com/jaypipes/ghw/pkg/pci/address"
 	"github.com/jaypipes/ghw/pkg/topology"
@@ -190,22 +189,4 @@ func (info *Info) lookupDevice(address string) *Device {
 		}
 	}
 	return nil
-}
-
-// simple private struct used to encapsulate PCI information in a top-level
-// "pci" YAML/JSON map/object key
-type pciPrinter struct {
-	Info *Info `json:"pci"`
-}
-
-// YAMLString returns a string with the PCI information formatted as YAML
-// under a top-level "pci:" key
-func (i *Info) YAMLString() string {
-	return marshal.SafeYAML(i.ctx, pciPrinter{i})
-}
-
-// JSONString returns a string with the PCI information formatted as JSON
-// under a top-level "pci:" key
-func (i *Info) JSONString(indent bool) string {
-	return marshal.SafeJSON(i.ctx, pciPrinter{i}, indent)
 }

@@ -8,7 +8,6 @@ package product
 
 import (
 	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/marshal"
 	"github.com/jaypipes/ghw/pkg/option"
 	"github.com/jaypipes/ghw/pkg/util"
 )
@@ -75,22 +74,4 @@ func New(opts ...*option.Option) (*Info, error) {
 		return nil, err
 	}
 	return info, nil
-}
-
-// simple private struct used to encapsulate product information in a top-level
-// "product" YAML/JSON map/object key
-type productPrinter struct {
-	Info *Info `json:"product"`
-}
-
-// YAMLString returns a string with the product information formatted as YAML
-// under a top-level "dmi:" key
-func (info *Info) YAMLString() string {
-	return marshal.SafeYAML(info.ctx, productPrinter{info})
-}
-
-// JSONString returns a string with the product information formatted as JSON
-// under a top-level "product:" key
-func (info *Info) JSONString(indent bool) string {
-	return marshal.SafeJSON(info.ctx, productPrinter{info}, indent)
 }

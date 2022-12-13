@@ -10,7 +10,6 @@ import (
 	"fmt"
 
 	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/marshal"
 	"github.com/jaypipes/ghw/pkg/option"
 	"github.com/jaypipes/ghw/pkg/util"
 )
@@ -56,22 +55,4 @@ func New(opts ...*option.Option) (*Info, error) {
 		return nil, err
 	}
 	return info, nil
-}
-
-// simple private struct used to encapsulate BIOS information in a top-level
-// "bios" YAML/JSON map/object key
-type biosPrinter struct {
-	Info *Info `json:"bios"`
-}
-
-// YAMLString returns a string with the BIOS information formatted as YAML
-// under a top-level "dmi:" key
-func (info *Info) YAMLString() string {
-	return marshal.SafeYAML(info.ctx, biosPrinter{info})
-}
-
-// JSONString returns a string with the BIOS information formatted as JSON
-// under a top-level "bios:" key
-func (info *Info) JSONString(indent bool) string {
-	return marshal.SafeJSON(info.ctx, biosPrinter{info}, indent)
 }

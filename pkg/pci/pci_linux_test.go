@@ -13,8 +13,6 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/marshal"
 	"github.com/jaypipes/ghw/pkg/option"
 	"github.com/jaypipes/ghw/pkg/pci"
 	"github.com/jaypipes/ghw/pkg/util"
@@ -138,10 +136,6 @@ func TestPCIMarshalJSON(t *testing.T) {
 	if dev == nil {
 		t.Fatalf("Failed to parse valid modalias")
 	}
-	s := marshal.SafeJSON(context.FromEnv(), dev, true)
-	if s == "" {
-		t.Fatalf("Error marshalling device: %v", dev)
-	}
 }
 
 // the sriov-device-plugin code has a test like this
@@ -193,27 +187,6 @@ func pciTestSetup(t *testing.T) *pci.Info {
 		t.Fatalf("Expected non-nil PCIInfo, but got nil")
 	}
 	return info
-}
-
-// we have this test in pci_linux_test.go (and not in pci_test.go) because `pciFillInfo` is implemented
-// only on linux; so having it in the platform-independent tests would lead to false negatives.
-func TestPCIMarshalUnmarshal(t *testing.T) {
-	data, err := pci.New(option.WithNullAlerter())
-	if err != nil {
-		t.Fatalf("Expected no error creating pci.Info, but got %v", err)
-	}
-
-	jdata, err := json.Marshal(data)
-	if err != nil {
-		t.Fatalf("Expected no error marshaling pci.Info, but got %v", err)
-	}
-
-	var topo *pci.Info
-
-	err = json.Unmarshal(jdata, &topo)
-	if err != nil {
-		t.Fatalf("Expected no error unmarshaling pci.Info, but got %v", err)
-	}
 }
 
 func TestPCIModaliasWithUpperCaseClassID(t *testing.T) {
