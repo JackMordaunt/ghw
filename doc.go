@@ -194,7 +194,7 @@ but also query for information about hardware device classes, vendor and
 product information.
 
 **NOTE**: Parsing of the PCI-IDS file database is provided by the separate
-http://github.com/jaypipes/pcidb library. You can read that library's
+http://github.com/jackmordaunt/pcidb library. You can read that library's
 README for more information about the various structs that are exposed on
 the PCIInfo struct.
 

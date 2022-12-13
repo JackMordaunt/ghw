@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/jaypipes/pcidb"
+	"github.com/jackmordaunt/pcidb"
 
 	"github.com/jackmordaunt/ghw/pkg/context"
 	"github.com/jackmordaunt/ghw/pkg/linuxpath"
@@ -387,7 +387,7 @@ func (info *Info) getDeviceFromModaliasInfo(address string, modaliasInfo *device
 // ListDevices returns a list of pointers to Device structs present on the
 // host system
 // DEPRECATED. Will be removed in v1.0. Please use
-// github.com/jaypipes/pcidb to explore PCIDB information
+// github.com/jackmordaunt/pcidb to explore PCIDB information
 func (info *Info) ListDevices() []*Device {
 	paths := linuxpath.New(info.ctx)
 	devs := make([]*Device, 0)

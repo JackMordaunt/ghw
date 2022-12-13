@@ -7,7 +7,6 @@
 package pci_test
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"

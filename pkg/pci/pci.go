@@ -10,7 +10,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/jaypipes/pcidb"
+	"github.com/jackmordaunt/pcidb"
 
 	"github.com/jackmordaunt/ghw/pkg/context"
 	"github.com/jackmordaunt/ghw/pkg/option"
@@ -128,15 +128,15 @@ type Info struct {
 	Devices []*Device
 	// hash of class ID -> class information
 	// DEPRECATED. Will be removed in v1.0. Please use
-	// github.com/jaypipes/pcidb to explore PCIDB information
+	// github.com/jackmordaunt/pcidb to explore PCIDB information
 	Classes map[string]*pcidb.Class `json:"-"`
 	// hash of vendor ID -> vendor information
 	// DEPRECATED. Will be removed in v1.0. Please use
-	// github.com/jaypipes/pcidb to explore PCIDB information
+	// github.com/jackmordaunt/pcidb to explore PCIDB information
 	Vendors map[string]*pcidb.Vendor `json:"-"`
 	// hash of vendor ID + product/device ID -> product information
 	// DEPRECATED. Will be removed in v1.0. Please use
-	// github.com/jaypipes/pcidb to explore PCIDB information
+	// github.com/jackmordaunt/pcidb to explore PCIDB information
 	Products map[string]*pcidb.Product `json:"-"`
 }
 

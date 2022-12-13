@@ -8,8 +8,8 @@ package gpu
 import (
 	"strings"
 
+	"github.com/jackmordaunt/pcidb"
 	"github.com/jackmordaunt/wmi"
-	"github.com/jaypipes/pcidb"
 
 	"github.com/jackmordaunt/ghw/pkg/pci"
 	"github.com/jackmordaunt/ghw/pkg/util"
