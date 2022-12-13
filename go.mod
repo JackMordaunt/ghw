@@ -3,10 +3,8 @@ module github.com/jaypipes/ghw
 go 1.15
 
 require (
-	github.com/StackExchange/wmi v1.2.1
-	github.com/go-ole/go-ole v1.2.6 // indirect
+	github.com/jackmordaunt/wmi v1.2.3
 	github.com/jaypipes/pcidb v1.0.0
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	golang.org/x/sys v0.3.0 // indirect
 	howett.net/plist v1.0.0
 )

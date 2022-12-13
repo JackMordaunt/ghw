@@ -6,7 +6,7 @@
 package product
 
 import (
-	"github.com/StackExchange/wmi"
+	"github.com/jackmordaunt/wmi"
 
 	"github.com/jaypipes/ghw/pkg/util"
 )

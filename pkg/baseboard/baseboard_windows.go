@@ -6,7 +6,7 @@
 package baseboard
 
 import (
-	"github.com/StackExchange/wmi"
+	"github.com/jackmordaunt/wmi"
 )
 
 const wqlBaseboard = "SELECT Manufacturer, SerialNumber, Tag, Version, Product FROM Win32_BaseBoard"

@@ -9,7 +9,7 @@
 package cpu
 
 import (
-	"github.com/StackExchange/wmi"
+	"github.com/jackmordaunt/wmi"
 )
 
 const wmqlProcessor = "SELECT Manufacturer, Name, NumberOfLogicalProcessors, NumberOfCores FROM Win32_Processor"
