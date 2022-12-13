@@ -7,19 +7,19 @@
 package ghw
 
 import (
-	"github.com/jaypipes/ghw/pkg/baseboard"
-	"github.com/jaypipes/ghw/pkg/bios"
-	"github.com/jaypipes/ghw/pkg/block"
-	"github.com/jaypipes/ghw/pkg/chassis"
-	"github.com/jaypipes/ghw/pkg/cpu"
-	"github.com/jaypipes/ghw/pkg/gpu"
-	"github.com/jaypipes/ghw/pkg/memory"
-	"github.com/jaypipes/ghw/pkg/net"
-	"github.com/jaypipes/ghw/pkg/option"
-	"github.com/jaypipes/ghw/pkg/pci"
-	pciaddress "github.com/jaypipes/ghw/pkg/pci/address"
-	"github.com/jaypipes/ghw/pkg/product"
-	"github.com/jaypipes/ghw/pkg/topology"
+	"github.com/jackmordaunt/ghw/pkg/baseboard"
+	"github.com/jackmordaunt/ghw/pkg/bios"
+	"github.com/jackmordaunt/ghw/pkg/block"
+	"github.com/jackmordaunt/ghw/pkg/chassis"
+	"github.com/jackmordaunt/ghw/pkg/cpu"
+	"github.com/jackmordaunt/ghw/pkg/gpu"
+	"github.com/jackmordaunt/ghw/pkg/memory"
+	"github.com/jackmordaunt/ghw/pkg/net"
+	"github.com/jackmordaunt/ghw/pkg/option"
+	"github.com/jackmordaunt/ghw/pkg/pci"
+	pciaddress "github.com/jackmordaunt/ghw/pkg/pci/address"
+	"github.com/jackmordaunt/ghw/pkg/product"
+	"github.com/jackmordaunt/ghw/pkg/topology"
 )
 
 type WithOption = option.Option

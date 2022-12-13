@@ -9,10 +9,10 @@ package gpu
 import (
 	"fmt"
 
-	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/option"
-	"github.com/jaypipes/ghw/pkg/pci"
-	"github.com/jaypipes/ghw/pkg/topology"
+	"github.com/jackmordaunt/ghw/pkg/context"
+	"github.com/jackmordaunt/ghw/pkg/option"
+	"github.com/jackmordaunt/ghw/pkg/pci"
+	"github.com/jackmordaunt/ghw/pkg/topology"
 )
 
 type GraphicsCard struct {

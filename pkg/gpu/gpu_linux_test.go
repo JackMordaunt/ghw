@@ -13,14 +13,14 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/jaypipes/ghw/pkg/gpu"
-	"github.com/jaypipes/ghw/pkg/option"
-	"github.com/jaypipes/ghw/pkg/snapshot"
+	"github.com/jackmordaunt/ghw/pkg/gpu"
+	"github.com/jackmordaunt/ghw/pkg/option"
+	"github.com/jackmordaunt/ghw/pkg/snapshot"
 
-	"github.com/jaypipes/ghw/testdata"
+	"github.com/jackmordaunt/ghw/testdata"
 )
 
-// testcase for https://github.com/jaypipes/ghw/issues/234
+// testcase for https://github.com/jackmordaunt/ghw/issues/234
 // if nothing else: demonstrate how to consume snapshots from tests;
 // test a boundary condition actually happened in the wild, even though on a VM environment.
 func TestGPUWithoutNUMANodeInfo(t *testing.T) {

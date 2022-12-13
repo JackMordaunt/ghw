@@ -26,7 +26,7 @@ Memory function which returns a pointer to a MemoryInfo struct.
 	import (
 		"fmt"
 
-		"github.com/jaypipes/ghw"
+		"github.com/jackmordaunt/ghw"
 	)
 
 	func main() {
@@ -50,7 +50,7 @@ the CPUs on the host system.
 		"math"
 		"strings"
 
-		"github.com/jaypipes/ghw"
+		"github.com/jackmordaunt/ghw"
 	)
 
 	func main() {
@@ -97,7 +97,7 @@ the Block function. This function returns a pointer to a BlockInfo struct.
 	import (
 		"fmt"
 
-		"github.com/jaypipes/ghw"
+		"github.com/jackmordaunt/ghw"
 	)
 
 	func main() {
@@ -127,7 +127,7 @@ function. This function returns a pointer to a TopologyInfo struct.
 	import (
 		"fmt"
 
-		"github.com/jaypipes/ghw"
+		"github.com/jackmordaunt/ghw"
 	)
 
 	func main() {
@@ -157,7 +157,7 @@ struct.
 	import (
 		"fmt"
 
-		"github.com/jaypipes/ghw"
+		"github.com/jackmordaunt/ghw"
 	)
 
 	func main() {
@@ -205,7 +205,7 @@ PCIInfo.ListDevices is used to iterate over a host's PCI devices:
 	import (
 		"fmt"
 
-		"github.com/jaypipes/ghw"
+		"github.com/jackmordaunt/ghw"
 	)
 
 	func main() {
@@ -245,7 +245,7 @@ and use its returned PCIDevice struct pointer:
 		"fmt"
 		"os"
 
-		"github.com/jaypipes/ghw"
+		"github.com/jackmordaunt/ghw"
 	)
 
 	func main() {
@@ -295,7 +295,7 @@ the GPU function. This function returns a pointer to a GPUInfo struct.
 	import (
 		"fmt"
 
-		"github.com/jaypipes/ghw"
+		"github.com/jackmordaunt/ghw"
 	)
 
 	func main() {

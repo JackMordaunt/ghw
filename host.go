@@ -9,19 +9,19 @@ package ghw
 import (
 	"fmt"
 
-	"github.com/jaypipes/ghw/pkg/context"
+	"github.com/jackmordaunt/ghw/pkg/context"
 
-	"github.com/jaypipes/ghw/pkg/baseboard"
-	"github.com/jaypipes/ghw/pkg/bios"
-	"github.com/jaypipes/ghw/pkg/block"
-	"github.com/jaypipes/ghw/pkg/chassis"
-	"github.com/jaypipes/ghw/pkg/cpu"
-	"github.com/jaypipes/ghw/pkg/gpu"
-	"github.com/jaypipes/ghw/pkg/memory"
-	"github.com/jaypipes/ghw/pkg/net"
-	"github.com/jaypipes/ghw/pkg/pci"
-	"github.com/jaypipes/ghw/pkg/product"
-	"github.com/jaypipes/ghw/pkg/topology"
+	"github.com/jackmordaunt/ghw/pkg/baseboard"
+	"github.com/jackmordaunt/ghw/pkg/bios"
+	"github.com/jackmordaunt/ghw/pkg/block"
+	"github.com/jackmordaunt/ghw/pkg/chassis"
+	"github.com/jackmordaunt/ghw/pkg/cpu"
+	"github.com/jackmordaunt/ghw/pkg/gpu"
+	"github.com/jackmordaunt/ghw/pkg/memory"
+	"github.com/jackmordaunt/ghw/pkg/net"
+	"github.com/jackmordaunt/ghw/pkg/pci"
+	"github.com/jackmordaunt/ghw/pkg/product"
+	"github.com/jackmordaunt/ghw/pkg/topology"
 )
 
 // HostInfo is a wrapper struct containing information about the host system's
