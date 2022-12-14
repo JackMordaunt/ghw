@@ -13,7 +13,6 @@ import (
 	"github.com/jackmordaunt/ghw/pkg/cpu"
 	"github.com/jackmordaunt/ghw/pkg/gpu"
 	"github.com/jackmordaunt/ghw/pkg/memory"
-	"github.com/jackmordaunt/ghw/pkg/net"
 	"github.com/jackmordaunt/ghw/pkg/option"
 	"github.com/jackmordaunt/ghw/pkg/pci"
 	pciaddress "github.com/jackmordaunt/ghw/pkg/pci/address"
@@ -86,14 +85,6 @@ const (
 	STORAGE_CONTROLLER_NVME    = block.STORAGE_CONTROLLER_NVME
 	STORAGE_CONTROLLER_VIRTIO  = block.STORAGE_CONTROLLER_VIRTIO
 	STORAGE_CONTROLLER_MMC     = block.STORAGE_CONTROLLER_MMC
-)
-
-type NetworkInfo = net.Info
-type NIC = net.NIC
-type NICCapability = net.NICCapability
-
-var (
-	Network = net.New
 )
 
 type ChassisInfo = chassis.Info

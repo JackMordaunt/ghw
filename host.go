@@ -17,7 +17,6 @@ import (
 	"github.com/jackmordaunt/ghw/pkg/cpu"
 	"github.com/jackmordaunt/ghw/pkg/gpu"
 	"github.com/jackmordaunt/ghw/pkg/memory"
-	"github.com/jackmordaunt/ghw/pkg/net"
 	"github.com/jackmordaunt/ghw/pkg/pci"
 	"github.com/jackmordaunt/ghw/pkg/product"
 	"github.com/jackmordaunt/ghw/pkg/topology"
@@ -31,7 +30,6 @@ type HostInfo struct {
 	Block     *block.Info     `json:"block"`
 	CPU       *cpu.Info       `json:"cpu"`
 	Topology  *topology.Info  `json:"topology"`
-	Network   *net.Info       `json:"network"`
 	GPU       *gpu.Info       `json:"gpu"`
 	Chassis   *chassis.Info   `json:"chassis"`
 	Baseboard *baseboard.Info `json:"baseboard"`
@@ -57,10 +55,6 @@ func Host(opts ...*WithOption) (*HostInfo, error) {
 		return nil, err
 	}
 	topologyInfo, err := topology.New(opts...)
-	if err != nil {
-		return nil, err
-	}
-	netInfo, err := net.New(opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +84,6 @@ func Host(opts ...*WithOption) (*HostInfo, error) {
 		Memory:    memInfo,
 		Block:     blockInfo,
 		Topology:  topologyInfo,
-		Network:   netInfo,
 		GPU:       gpuInfo,
 		Chassis:   chassisInfo,
 		Baseboard: baseboardInfo,
@@ -103,12 +96,10 @@ func Host(opts ...*WithOption) (*HostInfo, error) {
 // structs' String-ified output
 func (info *HostInfo) String() string {
 	return fmt.Sprintf(
-		"%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+		"%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
 		info.Block.String(),
 		info.CPU.String(),
 		info.GPU.String(),
-		info.Memory.String(),
-		info.Network.String(),
 		info.Topology.String(),
 		info.Chassis.String(),
 		info.Baseboard.String(),
