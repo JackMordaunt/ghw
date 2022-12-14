@@ -8,7 +8,6 @@ package ghw
 
 import (
 	"github.com/jackmordaunt/ghw/pkg/baseboard"
-	"github.com/jackmordaunt/ghw/pkg/bios"
 	"github.com/jackmordaunt/ghw/pkg/block"
 	"github.com/jackmordaunt/ghw/pkg/chassis"
 	"github.com/jackmordaunt/ghw/pkg/cpu"
@@ -95,12 +94,6 @@ type NICCapability = net.NICCapability
 
 var (
 	Network = net.New
-)
-
-type BIOSInfo = bios.Info
-
-var (
-	BIOS = bios.New
 )
 
 type ChassisInfo = chassis.Info
