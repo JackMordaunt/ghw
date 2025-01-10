@@ -5,5 +5,5 @@ github.com/jackmordaunt/pcidb v1.0.1/go.mod h1:OMmhrZOZVu2hYXhBDZXddypxwKR/dp4Db
 github.com/jackmordaunt/wmi v1.2.4 h1:/XyuMiKby0qXNQp1j0uU0JqTWLM0QGOVok1Hf5Yagtg=
 github.com/jackmordaunt/wmi v1.2.4/go.mod h1:K/+FH4467Vk2fJXhYQTZzhctkCMMR7PwHqKbnizFySo=
 golang.org/x/sys v0.0.0-20190916202348-b4ddaad3f8a3/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
-golang.org/x/sys v0.3.0 h1:w8ZOecv6NaNa/zC8944JTU3vz4u6Lagfk4RPQxv92NQ=
-golang.org/x/sys v0.3.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.29.0 h1:TPYlXGxvx1MGTn2GiZDhnjPA9wZzZeGKHHmKhHYvgaU=
+golang.org/x/sys v0.29.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=

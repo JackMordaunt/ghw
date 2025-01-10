@@ -9,6 +9,7 @@ import (
 	"encoding/binary"
 	"fmt"
 	"syscall"
+	"golang.org/x/sys/windows"
 	"unsafe"
 )
 
@@ -109,7 +110,7 @@ func getWin32LogicalProcessorInfos() (
 	error,
 ) {
 	lpis := make([]*logicalProcessorInfo, 0)
-	win32api := syscall.NewLazyDLL("kernel32.dll")
+	win32api := windows.NewLazySystemDLL("kernel32.dll")
 	glpi := win32api.NewProc("GetLogicalProcessorInformation")
 
 	// The way the GetLogicalProcessorInformation (GLPI) Win32 API call
